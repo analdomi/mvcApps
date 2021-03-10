@@ -39,6 +39,13 @@ public class AppPanel extends JPanel implements ActionListener, PropertyChangeLi
                 Utilities.makeMenu("File", new String[] {"New",  "Save", "SaveAs", "Open", "Quit"}, this);
         result.add(fileMenu);
 
+        JMenu editMenu = Utilities.makeMenu("Edit", factory.getEditCommands(), this);
+        result.add(editMenu);
+
+        JMenu helpMenu =
+                Utilities.makeMenu("Help", new String[] {"About", "Help"}, this);
+        result.add(helpMenu);
+
         return result;
     }
 
@@ -121,6 +128,10 @@ public class AppPanel extends JPanel implements ActionListener, PropertyChangeLi
         } else if (cmmd == "Quit") {
             askToSaveChanges();
             System.exit(1);
+        } else if (cmmd == "About") {
+            Utilities.inform(factory.getTitle());
+        } else if (cmmd == "Help") {
+            Utilities.inform(factory.getHelp());
         }
     }
 }
