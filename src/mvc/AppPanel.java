@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Arrays;
 import javax.swing.*;
 
 public class AppPanel extends JPanel implements ActionListener, PropertyChangeListener {
@@ -93,6 +94,10 @@ public class AppPanel extends JPanel implements ActionListener, PropertyChangeLi
         }
     }
 
+    protected void handleException(Exception e) {
+        Utilities.error(e);
+    }
+
     public void actionPerformed(ActionEvent ae) {
         String cmmd = ae.getActionCommand();
         if (cmmd == "Save") {
@@ -128,6 +133,8 @@ public class AppPanel extends JPanel implements ActionListener, PropertyChangeLi
         } else if (cmmd == "Quit") {
             askToSaveChanges();
             System.exit(1);
+        } else if (Arrays.asList(factory.getEditCommands()).contains(cmmd)) {
+            factory.makeEditCommand(model, cmmd).execute();
         } else if (cmmd == "About") {
             Utilities.inform(factory.getTitle());
         } else if (cmmd == "Help") {
