@@ -11,7 +11,7 @@ public class Utilities {
     public static boolean confirm(String query) {
         int result = JOptionPane.showConfirmDialog(null,
                 query, "choose one", JOptionPane.YES_NO_OPTION);
-        return result == 1;
+        return result == 0;
     }
 
     // asks user for info
