@@ -20,4 +20,8 @@ public class View extends JPanel implements PropertyChangeListener {
         repaint();
     }
 
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        repaint();
+    }
 }

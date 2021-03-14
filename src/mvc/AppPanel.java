@@ -14,6 +14,9 @@ import javax.swing.*;
 
 public class AppPanel extends JPanel implements ActionListener, PropertyChangeListener {
 
+    public static int FRAME_WIDTH = 500;
+    public static int FRAME_HEIGHT = 300;
+
     private Model model;
     private View view;
     private AppFactory factory;
@@ -24,12 +27,21 @@ public class AppPanel extends JPanel implements ActionListener, PropertyChangeLi
 
     public AppPanel(AppFactory factory) {
         this.factory = factory;
+        this.model = this.factory.makeModel();
+        this.view = this.factory.makeView(this.model);
         controlPanel = new JPanel();
 
+        add(controlPanel);
+        add(view);
+
         frame = new JFrame();
+        setLayout((new GridLayout(1, 2)));
+        controlPanel.setBackground(Color.pink);
         Container cp = frame.getContentPane();
         frame.setJMenuBar(createMenuBar());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setTitle(this.factory.getTitle());
+        frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         cp.add(this);
     }
 
@@ -52,6 +64,10 @@ public class AppPanel extends JPanel implements ActionListener, PropertyChangeLi
 
     public void display() { frame.setVisible(true); }
 
+    protected void handleException(Exception e) {
+        Utilities.error(e);
+    }
+
     // Save model, prompt user for a file name
     private void saveFileAs() {
         ObjectOutputStream os = null;
@@ -63,7 +79,7 @@ public class AppPanel extends JPanel implements ActionListener, PropertyChangeLi
             model.fileName = fName;
             model.unsavedChanges = false;
         } catch (Exception err) {
-            if(os != null) Utilities.error(err);
+            if(os != null) handleException(err);
         }
     }
 
@@ -76,7 +92,7 @@ public class AppPanel extends JPanel implements ActionListener, PropertyChangeLi
             os.close();
             model.unsavedChanges = false;
         } catch (Exception err) {
-            if(os != null) Utilities.error(err);
+            if(os != null) handleException(err);
         }
     }
 
@@ -92,10 +108,6 @@ public class AppPanel extends JPanel implements ActionListener, PropertyChangeLi
                 }
             }
         }
-    }
-
-    protected void handleException(Exception e) {
-        Utilities.error(e);
     }
 
     public void actionPerformed(ActionEvent ae) {
@@ -120,25 +132,29 @@ public class AppPanel extends JPanel implements ActionListener, PropertyChangeLi
                 is.close();
                 model.fileName = fName;
                 model.unsavedChanges = false;
-
             } catch (Exception err) {
                 if(is != null) Utilities.error(err.getMessage());
             }
         } else if (cmmd == "New") {
             askToSaveChanges();
-            model = new Model();
+            model = factory.makeModel();
             view.setModel(model);
             model.fileName = null;
             model.unsavedChanges = false;
         } else if (cmmd == "Quit") {
             askToSaveChanges();
             System.exit(1);
-        } else if (Arrays.asList(factory.getEditCommands()).contains(cmmd)) {
-            factory.makeEditCommand(model, cmmd).execute();
         } else if (cmmd == "About") {
             Utilities.inform(factory.getTitle());
         } else if (cmmd == "Help") {
             Utilities.inform(factory.getHelp());
+        } else {
+            factory.makeEditCommand(model, cmmd).execute();
         }
+    }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        repaint();
     }
 }
