@@ -11,7 +11,7 @@ public class Minefield extends Model {
     private int x = 0;
     private int y = 0;
 
-    private Cell field[][] = new Cell [WORLD_SIZE][WORLD_SIZE];
+    private Grid grid = new Grid(WORLD_SIZE);
 
     public int getX() {
         return x;

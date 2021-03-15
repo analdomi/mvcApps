@@ -14,8 +14,8 @@ public class Cell implements Serializable{
         traversed = false;
     }
 
-    public void setNeighboringMines(int mines) {
-        neighboringMines = mines;
+    public void incrementNeighboringMines() {
+        neighboringMines++;
     }
 
     public int getNeighboringMines() {
