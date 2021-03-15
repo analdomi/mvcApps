@@ -13,6 +13,10 @@ public class Minefield extends Model {
 
     private Grid grid = new Grid(WORLD_SIZE);
 
+    public Grid getGrid() {
+        return grid;
+    }
+
     public int getX() {
         return x;
     }
