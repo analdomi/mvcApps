@@ -23,7 +23,7 @@ public class Minefield extends Model {
 
     public void moveUp() {
         try {
-            x--;
+            y--;
             changed();
         } catch(Exception e) {
             Utilities.error("Can't move off the board");
@@ -32,7 +32,7 @@ public class Minefield extends Model {
 
     public void moveDown() {
         try {
-            x++;
+            y++;
             changed();
         } catch(Exception e) {
             Utilities.error("Can't move off the board");
@@ -41,7 +41,7 @@ public class Minefield extends Model {
 
     public void moveLeft() {
         try {
-            y--;
+            x--;
             changed();
         } catch(Exception e) {
             Utilities.error("Can't move off the board");
@@ -50,7 +50,7 @@ public class Minefield extends Model {
 
     public void moveRight() {
         try {
-            y++;
+            x++;
             changed();
         } catch(Exception e) {
             Utilities.error("Can't move off the board");
