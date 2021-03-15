@@ -13,4 +13,28 @@ public class Cell implements Serializable{
         mined = Math.random() < minedChance;
         traversed = false;
     }
+
+    public void incrementNeighboringMines() {
+        neighboringMines++;
+    }
+
+    public int getNeighboringMines() {
+        return neighboringMines;
+    }
+
+    public void mine() {
+        mined = true;
+    }
+
+    public boolean isMined() {
+        return mined;
+    }
+
+    public boolean isTraversed() {
+        return traversed;
+    }
+
+    public void traverse() {
+        traversed = true;
+    }
 }
