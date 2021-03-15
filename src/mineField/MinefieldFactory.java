@@ -6,7 +6,7 @@ import stopLight.ChangeCommand;
 import stopLight.Stoplight;
 import stopLight.StoplightView;
 
-public class MineFieldFactory implements AppFactory {
+public class MinefieldFactory implements AppFactory {
 
     public Model makeModel() { return new Stoplight(); }
 
