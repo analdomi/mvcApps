@@ -15,6 +15,7 @@ public class MinefieldPanel extends AppPanel {
         super(factory);
 
         // add buttons to control panel
+        controlPanel.setLayout(new GridLayout(8, 2));
         String[] buttons = {"NW", "N", "NE", "W", "E", "SW", "S", "SE"};
         for(String buttonName : buttons) {
             JButton btn = new JButton(buttonName);
