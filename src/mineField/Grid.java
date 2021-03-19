@@ -19,10 +19,12 @@ public class Grid {
                 if(field[i][j].isMined()) {
                     for(int x = i - 1; x <= i + 1; x++) {
                         for(int y = j - 1; y <= j + 1; y++) {
-                            try {
-                                field[x][y].incrementNeighboringMines();
-                            } catch(Exception e) {
-                                ;
+                            if (x != i && y != j) { // Does not increment for itself
+                                try {
+                                    field[x][y].incrementNeighboringMines();
+                                } catch (Exception e) {
+                                    ;
+                                }
                             }
                         }
                     }

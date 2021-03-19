@@ -14,14 +14,17 @@ public class MinefieldPanel extends AppPanel {
     public MinefieldPanel(AppFactory factory) {
         super(factory);
 
-        //this.setLayout(new BorderLayout());
-        change = new JButton("Change");
-        change.addActionListener(this);
-        //JPanel buttonPanel = new JPanel();
-        //buttonPanel.setLayout(new FlowLayout());
-        controlPanel.add(change);
-        //add(buttonPanel);
-        //add(view);
+        // add buttons to control panel
+        controlPanel.setLayout(new GridLayout(8, 2));
+        String[] buttons = {"NW", "N", "NE", "W", "E", "SW", "S", "SE"};
+        for(String buttonName : buttons) {
+            JButton btn = new JButton(buttonName);
+            btn.addActionListener(this);
+            JPanel btnPanel = new JPanel();
+            btnPanel.setLayout(new FlowLayout());
+            btnPanel.add(btn);
+            controlPanel.add(btnPanel);
+        }
     }
 
     public static void main(String[] args) {
