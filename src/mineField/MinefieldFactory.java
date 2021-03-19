@@ -22,7 +22,7 @@ public class MinefieldFactory implements AppFactory {
         return null;
     }
 
-    public String getTitle() { return "Stop Light Simulator"; }
+    public String getTitle() { return "MineField Simulator"; }
 
     public String[] getHelp() {
         return new String[] {"click Change to cycle through colors"};

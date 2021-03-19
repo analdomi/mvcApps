@@ -56,5 +56,32 @@ public class Minefield extends Model {
             Utilities.error("Can't move off the board");
         }
     }
+    public void moveSouthEast() {
+        try {
+            y++;
+            x++;
+            changed();
+        } catch(Exception e) {
+            Utilities.error("Can't move off the board");
+        }
+    }
+    public void moveSouthWest() {
+        try {
+            y--;
+            x++;
+            changed();
+        } catch(Exception e) {
+            Utilities.error("Can't move off the board");
+        }
+    }
+    public void moveNorthWest() {
+        try {
+            y--;
+            x--;
+            changed();
+        } catch(Exception e) {
+            Utilities.error("Can't move off the board");
+        }
+    }
     // public String toString() { return "stopLight.color = " + color; }
 }
