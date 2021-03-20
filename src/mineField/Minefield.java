@@ -25,7 +25,7 @@ public class Minefield extends Model {
         return y;
     }
 
-    public void moveUp() {
+    public void moveNorth() {
         try {
             y--;
             changed();
@@ -34,7 +34,7 @@ public class Minefield extends Model {
         }
     }
 
-    public void moveDown() {
+    public void moveSouth() {
         try {
             y++;
             changed();
@@ -43,7 +43,7 @@ public class Minefield extends Model {
         }
     }
 
-    public void moveLeft() {
+    public void moveWest() {
         try {
             x--;
             changed();
@@ -52,7 +52,7 @@ public class Minefield extends Model {
         }
     }
 
-    public void moveRight() {
+    public void moveEast() {
         try {
             x++;
             changed();
@@ -70,6 +70,15 @@ public class Minefield extends Model {
         }
     }
     public void moveSouthWest() {
+        try {
+            y++;
+            x--;
+            changed();
+        } catch(Exception e) {
+            Utilities.error("Can't move off the board");
+        }
+    }
+    public void moveNorthEast() {
         try {
             y--;
             x++;
