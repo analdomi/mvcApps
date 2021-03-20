@@ -1,6 +1,8 @@
 package mineField;
 
-public class Grid {
+import java.io.Serializable;
+
+public class Grid implements Serializable {
 
     private Cell field[][];
 
