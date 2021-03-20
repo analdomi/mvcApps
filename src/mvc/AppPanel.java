@@ -68,43 +68,15 @@ public class AppPanel extends JPanel implements ActionListener, PropertyChangeLi
         Utilities.error(e);
     }
 
-    // Save model, prompt user for a file name
-    private void saveFileAs() {
-        ObjectOutputStream os = null;
-        try {
-            String fName = Utilities.getFileName(null, false);
-            os = new ObjectOutputStream(new FileOutputStream(fName));
-            os.writeObject(model);
-            os.close();
-            model.fileName = fName;
-            model.unsavedChanges = false;
-        } catch (Exception err) {
-            if(os != null) handleException(err);
-        }
-    }
-
-    // Save model to currentFileName
-    private void saveFile() {
-        ObjectOutputStream os = null;
-        try {
-            os = new ObjectOutputStream(new FileOutputStream(model.fileName));
-            os.writeObject(model);
-            os.close();
-            model.unsavedChanges = false;
-        } catch (Exception err) {
-            if(os != null) handleException(err);
-        }
-    }
-
     // Ask the user if they want to save any unsaved changes.
     private void askToSaveChanges() {
         if(model.unsavedChanges) {
             boolean saveChanges = Utilities.confirm("Would you like to save your changes?");
             if(saveChanges) {
                 if(model.fileName != null) {
-                    saveFile();
+                    Utilities.save(model, false);
                 } else {
-                    saveFileAs();
+                    Utilities.save(model, true);
                 }
             }
         }
@@ -114,13 +86,13 @@ public class AppPanel extends JPanel implements ActionListener, PropertyChangeLi
         String cmmd = ae.getActionCommand();
         if (cmmd == "Save") {
             if(model.fileName != null) {
-                saveFile();
+                Utilities.save(model, false);
             }
             else {
-                saveFileAs();
+                Utilities.save(model, true);
             }
         } else if (cmmd == "SaveAs") {
-            saveFileAs();
+            Utilities.save(model, true);
         } else if (cmmd == "Open") {
             ObjectInputStream is = null;
             try {
