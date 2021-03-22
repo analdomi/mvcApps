@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Cell implements Serializable{
 
-    private final double MINED_CHANCE = .05;
+    private final double MINED_CHANCE = .2;
     private int neighboringMines;
     private boolean mined;
     private boolean traversed;

@@ -5,7 +5,7 @@ import mvc.*;
 public class Minefield extends Model {
 
     public static Integer WORLD_SIZE = 20;
-    private boolean activeGame = true;
+    public boolean activeGame = true;
     private int x = 0;
     private int y = 0;
 
