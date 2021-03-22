@@ -1,43 +1,15 @@
 package mineField;
 
 import mvc.*;
-import java.util.Random;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.Color;
 
 public class Minefield extends Model {
 
     public static Integer WORLD_SIZE = 20;
-    private int numRows;
-    private int numCols;
-    private int numMines;
-    private boolean[][] mineField;
-    private Random generater;
     private boolean activeGame = true;
-    private CardLayout cards = new CardLayout();
-    private JPanel[] bombPanels = new JPanel[numRows];
-    private JButton[] bombButtons = new JButton[numRows];
-    private Container gameContainer = new Container();
     private int x = 0;
     private int y = 0;
 
     private Grid grid = new Grid(WORLD_SIZE);
-    private void drawGameGrid()
-    {
-        for(int i = 0; i < numRows; i++)
-        {
-            bombPanels[i] = new JPanel(cards);
-            bombButtons[i] = new JButton("Click me!");
-            bombButtons[i].setBackground(null);
-            bombPanels[i].add("card" + i, bombButtons[i]);
-            bombPanels[i].setBackground(Color.BLUE);
-            gameContainer.add(bombPanels[i]);
-           
-        }
-    }
-
 
     public Grid getGrid() {
         return grid;
@@ -48,6 +20,14 @@ public class Minefield extends Model {
     }
 
     public int getY() {
+        return y;
+    }
+
+    public void setX(int xInc) {
+        x;
+    }
+
+    public void setY() {
         return y;
     }
 
