@@ -24,83 +24,11 @@ public class Minefield extends Model {
     }
 
     public void setX(int xInc) {
-        x;
+        x += xInc;
     }
 
-    public void setY() {
-        return y;
+    public void setY(int yInc) {
+        y += yInc;
     }
 
-    public void moveNorth() {
-        try {
-            y--;
-            changed();
-        } catch(Exception e) {
-            Utilities.error("Can't move off the board");
-        }
-    }
-
-    public void moveSouth() {
-        try {
-            y++;
-            changed();
-        } catch(Exception e) {
-            Utilities.error("Can't move off the board");
-        }
-    }
-
-    public void moveWest() {
-        try {
-            x--;
-            changed();
-        } catch(Exception e) {
-            Utilities.error("Can't move off the board");
-        }
-    }
-
-    public void moveEast() {
-        try {
-            x++;
-            changed();
-        } catch(Exception e) {
-            Utilities.error("Can't move off the board");
-        }
-    }
-    public void moveSouthEast() {
-        try {
-            y++;
-            x++;
-            changed();
-        } catch(Exception e) {
-            Utilities.error("Can't move off the board");
-        }
-    }
-    public void moveSouthWest() {
-        try {
-            y++;
-            x--;
-            changed();
-        } catch(Exception e) {
-            Utilities.error("Can't move off the board");
-        }
-    }
-    public void moveNorthEast() {
-        try {
-            y--;
-            x++;
-            changed();
-        } catch(Exception e) {
-            Utilities.error("Can't move off the board");
-        }
-    }
-    public void moveNorthWest() {
-        try {
-            y--;
-            x--;
-            changed();
-        } catch(Exception e) {
-            Utilities.error("Can't move off the board");
-        }
-    }
-    // public String toString() { return "stopLight.color = " + color; }
 }
