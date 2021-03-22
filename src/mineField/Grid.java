@@ -40,4 +40,11 @@ public class Grid implements Serializable {
     public Cell[][] getGrid() {
         return field;
     }
+
+    public Cell getCell(int i, int j) {
+        if(i >= 0 && i < size && j >= 0 && j < size) {
+            return field[i][j];
+        }
+        return new Cell();
+    }
 }
