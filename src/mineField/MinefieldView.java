@@ -11,10 +11,12 @@ public class MinefieldView extends View {
 
     public void paintComponent(Graphics gc) {
         super.paintComponent(gc);
-        Minefield light = (Minefield)model;
+        Minefield minefield = (Minefield)model;
+        minefield.getGrid();
         Color oldColor = gc.getColor();
         //gc.setColor(light.getColor());
         gc.fillOval(100, 100, 20, 20);
         gc.setColor(oldColor);
+
     }
 }
