@@ -5,6 +5,8 @@ import java.io.Serializable;
 public class Grid implements Serializable {
 
     private Cell[][] field;
+    int size = 20;
+
 
     public Grid(int size) {
         field = new Cell [size][size];
