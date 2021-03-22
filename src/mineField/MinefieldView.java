@@ -23,14 +23,14 @@ public class MinefieldView extends View {
         //gc.setColor(light.getColor());
         for(int i =0; i< minefield.WORLD_SIZE ; i++){
             for(int j =0; j < minefield.WORLD_SIZE; j++){
-//                Cell[][] grid = minefield.getGrid().getGrid();
-//                if(grid[i][j].isTraversed()) {
-//
-//                    gc.setColor(Color.white);
-//                }
-//                else{
-//                    gc.setColor(Color.black);
-//                }
+                Grid grid = minefield.getGrid();
+                Cell cell = grid.getCell(i, j);
+                if(cell.isTraversed()) {
+                    gc.setColor(Color.white);
+                }
+                else{
+                    gc.setColor(Color.black);
+                }
                 gc.drawRect(RECT_X * i, RECT_Y * j, RECT_WIDTH , RECT_HEIGHT);
                 gc.drawString("?", RECT_X * i,RECT_Y * j);
 
