@@ -5,12 +5,13 @@ import java.util.Random;
 
 public class Cell implements Serializable{
 
+    private final double MINED_CHANCE = .05;
     private int neighboringMines;
     private boolean mined;
     private boolean traversed;
 
-    public Cell(float minedChance) {
-        mined = Math.random() < minedChance;
+    public Cell() {
+        mined = Math.random() < MINED_CHANCE;
         traversed = false;
     }
 
