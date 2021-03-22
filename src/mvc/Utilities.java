@@ -79,20 +79,39 @@ public class Utilities {
     }
 
     // save model
+//    public static void save(Model model, Boolean saveAs) {
+//        String fName = model.getFileName();
+//        if (fName == null || saveAs) {
+//            fName = getFileName(fName, false);
+//            model.setFileName(fName);
+//        }
+//        try {
+//            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(fName));
+//            model.setUnsavedChanges(false);
+//            os.writeObject(model);
+//            os.close();
+//        } catch (Exception err) {
+//            model.setUnsavedChanges(true);
+//            Utilities.error(err);
+//        }
+//    }
+
     public static void save(Model model, Boolean saveAs) {
-        String fName = model.getFileName();
-        if (fName == null || saveAs) {
-            fName = getFileName(fName, false);
-            model.setFileName(fName);
-        }
+        ObjectOutputStream os = null;
         try {
-            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(fName));
-            model.setUnsavedChanges(false);
+            String fName = null;
+            if(model.fileName == null || saveAs){
+                fName = Utilities.getFileName(null, false);
+            } else {
+                fName = model.fileName;
+            }
+            os = new ObjectOutputStream(new FileOutputStream(fName));
             os.writeObject(model);
             os.close();
+            model.fileName = fName;
+            model.unsavedChanges = false;
         } catch (Exception err) {
-            model.setUnsavedChanges(true);
-            Utilities.error(err);
+            if(os != null) Utilities.error(err);
         }
     }
 

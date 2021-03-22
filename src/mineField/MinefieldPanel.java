@@ -15,14 +15,14 @@ public class MinefieldPanel extends AppPanel {
         super(factory);
 
         // add buttons to control panel
-        controlPanel.setLayout(new GridLayout(2, 4));
-        controlPanel.setSize(300,300);
+        controlPanel.setLayout(new GridLayout(4, 2));
         String[] buttons = {"NW", "N", "NE", "W", "E", "SW", "S", "SE"};
         for(String buttonName : buttons) {
             JButton btn = new JButton(buttonName);
             btn.addActionListener(this);
             JPanel btnPanel = new JPanel();
             btnPanel.setLayout(new FlowLayout());
+            btnPanel.setBackground(Color.pink);
             btnPanel.add(btn);
             controlPanel.add(btnPanel);
         }
