@@ -24,7 +24,7 @@ public class ECommand extends Command {
             int newX = ((Minefield) model).getX();
             int newY = ((Minefield) model).getY();
 
-             Cell newCell =((Minefield) model).getGrid().getGrid()[newX][newY];
+             Cell newCell =((Minefield) model).getGrid().getCell(newX, newY);
              newCell.traverse();
              if(newX == ((Minefield) model).WORLD_SIZE - 1 && newY == ((Minefield) model).WORLD_SIZE - 1) {
                 Utilities.inform("Game Over: You Won!");

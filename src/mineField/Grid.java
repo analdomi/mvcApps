@@ -37,7 +37,7 @@ public class Grid implements Serializable {
         field[0][0].traverse();
     }
 
-    public Cell[][] getGrid() {
+    public Cell[][] getField() {
         return field;
     }
 
