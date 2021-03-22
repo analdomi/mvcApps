@@ -23,12 +23,12 @@ public class Minefield extends Model {
         return y;
     }
 
-    public void setX(int xInc) {
-        x += xInc;
+    public void setX(int newX) {
+        x = newX;
     }
 
-    public void setY(int yInc) {
-        y += yInc;
+    public void setY(int newY) {
+        y = newY;
     }
 
 }
