@@ -16,6 +16,7 @@ public class WCommand extends Command {
         }
         else {
             ((Minefield) model).setY(curX - 1);
+            model.changed();
 
             int newX = ((Minefield) model).getX();
             int newY = ((Minefield) model).getY();

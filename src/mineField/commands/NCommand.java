@@ -21,6 +21,7 @@ public class NCommand extends Command {
         }
         else {
             ((Minefield) model).setY(curY - 1);
+            model.changed();
 
             int newX = ((Minefield) model).getX();
             int newY = ((Minefield) model).getY();

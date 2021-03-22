@@ -19,7 +19,8 @@ public class ECommand extends Command {
             Utilities.error("You cannot move off the board");
         }
         else {
-            ((Minefield) model).setY(curX + 1);
+            ((Minefield) model).setX(curX + 1);
+            model.changed();
 
             int newX = ((Minefield) model).getX();
             int newY = ((Minefield) model).getY();

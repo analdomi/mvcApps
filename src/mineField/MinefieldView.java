@@ -5,10 +5,10 @@ import java.awt.*;
 
 public class MinefieldView extends View {
 
-    private static final int RECT_X = 12;
-    private static final int RECT_Y = 12;
-    private static final int RECT_WIDTH = 12;
-    private static final int RECT_HEIGHT = 12;
+    private static final int RECT_X = 20;
+    private static final int RECT_Y = 20;
+    private static final int RECT_WIDTH = 20;
+    private static final int RECT_HEIGHT = 20;
     public MinefieldView(Minefield light) {
         super(light);
     }

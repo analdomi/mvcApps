@@ -22,6 +22,7 @@ public class SCommand extends Command {
 
             int newX = ((Minefield) model).getX();
             int newY = ((Minefield) model).getY();
+            model.changed();
 
              Cell newCell =((Minefield) model).getGrid().getCell(newX, newY);
              newCell.traverse();
