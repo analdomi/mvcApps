@@ -15,6 +15,7 @@ public class Grid implements Serializable {
                 field[i][j] = new Cell();
             }
         }
+        // Set neighboring mines
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 Cell curCell = field[i][i];
@@ -33,15 +34,8 @@ public class Grid implements Serializable {
                 }
             }
         }
+        // Set initial tile to traversed
         field[0][0].traverse();
-
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if(field[i][i].isTraversed()){
-                    System.out.println("Cell " + i + ", " + j + " is traversed");
-                }
-            }
-        }
     }
 
     public Cell[][] getField() {
