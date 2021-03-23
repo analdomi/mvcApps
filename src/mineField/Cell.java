@@ -28,6 +28,10 @@ public class Cell implements Serializable{
         mined = true;
     }
 
+    public void unmine() {
+        mined = false;
+    }
+
     public boolean isMined() {
         return mined;
     }
