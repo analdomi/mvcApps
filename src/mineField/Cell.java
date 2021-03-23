@@ -13,6 +13,7 @@ public class Cell implements Serializable{
     public Cell() {
         mined = Math.random() < MINED_CHANCE;
         traversed = false;
+        neighboringMines = 0;
     }
 
     public void incrementNeighboringMines() {
