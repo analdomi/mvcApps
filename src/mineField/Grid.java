@@ -15,6 +15,10 @@ public class Grid implements Serializable {
                 field[i][j] = new Cell();
             }
         }
+
+        field[0][0].unmine(); // Starting position cannot have a mine
+        field[size-1][size-1].unmine(); // Goal position cannot have a mine
+
         // Set neighboring mines
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
