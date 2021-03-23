@@ -14,8 +14,8 @@ import javax.swing.*;
 
 public class AppPanel extends JPanel implements ActionListener, PropertyChangeListener {
 
-    public static int FRAME_WIDTH = 500;
-    public static int FRAME_HEIGHT = 300;
+    public static int FRAME_WIDTH = 800;
+    public static int FRAME_HEIGHT = 455;
 
     private Model model;
     private View view;
