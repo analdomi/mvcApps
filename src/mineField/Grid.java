@@ -18,16 +18,14 @@ public class Grid implements Serializable {
         // Set neighboring mines
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                Cell curCell = field[i][i];
-                if (curCell.isMined()) {
-                    for (int x = i - 1; x <= i + 1; x++) {
-                        for (int y = j - 1; y <= j + 1; y++) {
-                            if (x != i || y != j) { // Does not increment for itself
-                                try {
-                                    field[x][y].incrementNeighboringMines();
-                                } catch (Exception e) {
-                                    ;
-                                }
+                for (int x = i - 1; x <= i + 1; x++) {
+                    for (int y = j - 1; y <= j + 1; y++) {
+                        if (x != i || y != j) { // Each cell checks its own neighbors
+                            try {                   // Does not increment for itself
+                                if (field[x][y].isMined())
+                                    field[i][j].incrementNeighboringMines();
+                            } catch (Exception e) {
+                                ;
                             }
                         }
                     }
