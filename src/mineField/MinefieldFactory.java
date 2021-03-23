@@ -48,7 +48,7 @@ public class MinefieldFactory implements AppFactory {
     }
 
     public String about() {
-        return "Minefield version 1.0. 2021";
+        return "Minefield version 1.0. 2021.\nAndre Domingo, Martin Vladimirov, Koosha Kimelman";
     }
 
 }

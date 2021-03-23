@@ -117,7 +117,7 @@ public class AppPanel extends JPanel implements ActionListener, PropertyChangeLi
             askToSaveChanges();
             System.exit(1);
         } else if (cmmd == "About") {
-            Utilities.inform(factory.getTitle());
+            Utilities.inform(factory.about());
         } else if (cmmd == "Help") {
             Utilities.inform(factory.getHelp());
         } else {
