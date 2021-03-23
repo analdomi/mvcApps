@@ -20,14 +20,10 @@ public class Grid implements Serializable {
             for (int j = 0; j < size; j++) {
                 for (int x = i - 1; x <= i + 1; x++) {
                     for (int y = j - 1; y <= j + 1; y++) {
-                        if (x != i || y != j) { // Each cell checks its own neighbors
-                            try {                   // Does not increment for itself
-                                if (field[x][y].isMined())
-                                    field[i][j].incrementNeighboringMines();
-                            } catch (Exception e) {
-                                ;
-                            }
+                        if((x != i || y != j) && !(x < 0 || x > size - 1 || y < 0 || y > size - 1) && field[x][y].isMined()) {
+                            field[i][j].incrementNeighboringMines();
                         }
+
                     }
                 }
             }
