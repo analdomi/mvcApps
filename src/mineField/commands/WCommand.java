@@ -10,6 +10,10 @@ public class WCommand extends Command {
 
     public void execute() {
         Minefield minefield = (Minefield)model;
+        if(!minefield.activeGame) {
+            Utilities.inform("Game is Over");
+            return;
+        }
         int curX = ((Minefield) model).getX();
         if(curX == 0) {
             Utilities.error("You cannot move off the board");

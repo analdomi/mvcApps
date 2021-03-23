@@ -14,10 +14,6 @@ public class SWCommand extends Command {
             Utilities.inform("Game is Over");
             return;
         }
-        if(!minefield.activeGame) {
-            Utilities.inform("Game is Over");
-            return;
-        }
         int curX = ((Minefield) model).getX();
         int curY = ((Minefield) model).getY();
         if(curX == 0 || curY == minefield.WORLD_SIZE - 1) {
