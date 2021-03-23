@@ -28,8 +28,9 @@ public class ECommand extends Command {
              Cell newCell =((Minefield) model).getGrid().getCell(newX, newY);
              newCell.traverse();
              if(newX == ((Minefield) model).WORLD_SIZE - 1 && newY == ((Minefield) model).WORLD_SIZE - 1) {
-                Utilities.inform("Game Over: You Won!");
-             } if (newCell.isMined()){
+                 Utilities.inform("Game Over: You Won!");
+                 minefield.activeGame = false;
+             } else if (newCell.isMined()){
                  Utilities.inform("Game Over: You Stepped on a Mine and were Exploded");
                  minefield.activeGame = false;
              }

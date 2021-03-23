@@ -35,8 +35,8 @@ public class SWCommand extends Command {
             newCell.traverse();
             if (newX == ((Minefield) model).WORLD_SIZE - 1 && newY == ((Minefield) model).WORLD_SIZE - 1) {
                 Utilities.inform("Game Over: You Won!");
-            }
-            if (newCell.isMined()) {
+                minefield.activeGame = false;
+            } else if (newCell.isMined()) {
                 Utilities.inform("Game Over: You Stepped on a Mine and were Exploded");
                 minefield.activeGame = false;
             }
